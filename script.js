@@ -78,9 +78,15 @@ const claerDisplay=()=>{
 }
 // delete last digit
 const deleteLastDigit=()=>{
-    if(result==='') return
-    result=result.slice(0,-1)
-    updateDisplay()
+    if (operation !== "" && result === "") {
+        operation = "";
+        result = previousOperand;
+        previousOperand = "";
+        updateDisplay();
+      } else {
+        result = result.slice(0, -1);
+        updateDisplay();
+      }
 }
 // add event listner to numbers
 numberBtns.forEach((button=>{
